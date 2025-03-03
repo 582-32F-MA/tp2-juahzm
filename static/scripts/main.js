@@ -1,4 +1,4 @@
-//
+//Testing FormData...null search?
 // // if (!form) return;
 
 //
@@ -10,13 +10,9 @@
 // const filterPick = formData.has("#filter");
 // console.log(filterPick);
 
-//control view//
+//1. control view//
 //
-//
-//
-//
-//
-// control search
+//2. control search//
 
 // const form = document.querySelector("form");
 // const formData = new FormData(form);
@@ -40,7 +36,20 @@ function afficherTitles(titles) {
     //          </dl> </article> </li> ... <article>...</article>..
     //   </ul> </li> </main>
 
-    const li = document.createElement("li");
+    const lis = document.querySelectorAll(".grid li"); //plutot
+    lis.append.getAllContent();
+
+    async function getAllContent() {
+        const res = await fetch("/", {
+            method: "GET",
+
+            headers: { "Accept": "application/json" },
+        });
+
+        const body = await res.text();
+        const bodyString = JSON.parse(body);
+        return bodyString;
+    }
 }
 
 async function getTitles(searchQuery = "") {
@@ -60,16 +69,6 @@ async function getTitles(searchQuery = "") {
     // return bodystring;
 }
 
-//control sort
-// control filter
+//3. control sort//
 //
-
-// const res = await fetch("/", {
-//     method: "GET",
-
-//     headers: { "Accept": "application/json" },
-// });
-
-// const body = await res.text();
-// const bodyString = JSON.parse(body);
-// console.log(bodyString);
+// 4. control filter//
