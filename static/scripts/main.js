@@ -14,43 +14,68 @@
 //
 //2. control search//
 
-// const form = document.querySelector("form");
-// const formData = new FormData(form);
-// const searchInput = formData.get("input[type=search]");
-const searchInput = document.querySelector("input[type=search]");
-if (searchInput instanceof HTMLInputElement) return;
+//1.class Creer une classe qui return toutes les elements HTML
+//2.class example expect to be, que-est-ce suppose de me retourner
+//3.la signature
+
+
+class ElementsLi {
+/**@type {HTMLElement}*/
+    ul;
+    /**@type {HTMLElement}*/
+    li;
+
+ /**@type {HTMLElement}*/
+    article;
+
+ /**@type {HTMLElement}*/
+    img;
+
+ /**@type {HTMLElement}*/
+    p;
+
+ /**@type {HTMLElement}*/
+    dl;
+
+ /**@type {HTMLElement}*/
+    dt; //appeler le prermiere au deuxieme il y a deux
+
+ /**@type {HTMLElement}*/
+    dd;//appeler le prermiere au deuxieme il y a deux
+    
+    
+    const ul = document.createElement("ul");
+  const li = document.createElement("li");
+  
+ const article = document.createElement("article");
+ const img = document.createElement("img");
+ const p = document.createElement("p");
+ const dl = document.createElement("dl");
+ const dt = document.createElement("dt");
+ const dd = document.createElement("dd");
+ 
+    
+    
+}
+
+
+//  const searchInput = document.querySelector("input[type=search]");
+// if (searchInput instanceof HTMLInputElement) return;
 
 searchInput.addEventListener("input", () => {
+
+    
+
+const form = document.querySelector("form");
+const formData = new FormData(form);
+const searchInput = formData.get("search");
+console.log(searchInput);
+
     const titles = getTitles(searchInput.value);
     afficherTitles(titles);
 });
 
-function afficherTitles(titles) {
-    // <main> class="grid" <ul> > <li> > <article>
-    //    <img src="image.jpg" /> <p>Castle in the Sky</p>
-    //           <dl>
-    //           <dt>Release date</dt>
-    //           <dd>1986</dd>
-    //           <dt>Director</dt>
-    //           <dd>Hayao Miyazaki</dd>
-    //          </dl> </article> </li> ... <article>...</article>..
-    //   </ul> </li> </main>
 
-    const lis = document.querySelectorAll(".grid li"); //plutot
-    lis.append.getAllContent();
-
-    async function getAllContent() {
-        const res = await fetch("/", {
-            method: "GET",
-
-            headers: { "Accept": "application/json" },
-        });
-
-        const body = await res.text();
-        const bodyString = JSON.parse(body);
-        return bodyString;
-    }
-}
 
 async function getTitles(searchQuery = "") {
     const url = new URL(location.href); //url courant
@@ -64,11 +89,46 @@ async function getTitles(searchQuery = "") {
 
     return await res.json();
 
-    // const body = await res.text();
-    // const bodystring = JSON.parse(body);
-    // return bodystring;
-}
 
-//3. control sort//
-//
-// 4. control filter//
+    
+    
+function afficherTitles(titles) {
+
+// <main> class="grid" <ul> > <li> > <article>
+  const lis = document.createElement("li");
+  lis.textContent = getTitles();
+  const grid = document.querySelector("grid");
+  grid.append(lis);
+
+//creer une class pour creer les elements de chaque carte
+   
+//     lis.append.getAllContent();
+
+//     async function getAllContent() {
+//         const res = await fetch("
+
+//             creteElement....//paramentget????/", {
+//             method: "GET",
+// //
+
+// cr//eteElement..
+//             headers: { "Accept": "application/json" },
+//         });
+
+//         const body = await res.text();
+//         const bodyString = JSON.parse(body);
+//         return bodyString;
+//     }
+// }
+
+
+
+//     // const body = await res.text();
+//     // const bodystring = JSON.parse(body);
+//     // return bodystring;
+// }
+
+// //3. control sort//
+// //
+// // 4. control filter//
+// 1.
